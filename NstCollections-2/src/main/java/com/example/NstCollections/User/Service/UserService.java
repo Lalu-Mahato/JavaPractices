@@ -8,22 +8,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.NstCollections.User.Dto.CreateUserDto;
+import com.example.NstCollections.User.Dto.UpdateUserDto;
 import com.example.NstCollections.User.Entity.User;
-import com.example.NstCollections.User.Entity.Dto.CreateUserDto;
-import com.example.NstCollections.User.Entity.Dto.UpdateUserDto;
 import com.example.NstCollections.User.Repository.UserRepository;
 
 @Service
 public class UserService {
+
     @Autowired
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-    // @Autowired
-    // private RoleRepository roleRepository;
 
     public ResponseEntity<Object> getUsers() {
         List<User> users = userRepository.findAll();
